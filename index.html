@@ -568,6 +568,14 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字典树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -606,19 +614,19 @@
 
 
   
-    <article id="post-etcd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-etcd-build" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/08/etcd/">etcd简单服务搭建方式记录</a>
+      <a class="article-title" href="/2020/07/08/etcd-build/">etcd简单服务搭建方式记录</a>
     </h1>
   
 
         
-        <a href="/2020/07/08/etcd/" class="archive-article-date">
+        <a href="/2020/07/08/etcd-build/" class="archive-article-date">
   	<time datetime="2020-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
 </a>
         
@@ -626,11 +634,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>启动三个节点</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d -p 2379:2379 -p 2380:2380 \</span><br><span class="line">-<span class="ruby">-restart=always \</span></span><br><span class="line"><span class="ruby">--net etcdnet \</span></span><br><span class="line"><span class="ruby">--ip <span class="number">192.167</span>.<span class="number">0</span>.<span class="number">168</span> \</span></span><br><span class="line"><span class="ruby">--name etcd<span class="number">0</span> quay.io/coreos/etcd /usr/local/bin/etcd \</span></span><br><span class="line"><span class="ruby">--name autumn-client<span class="number">0</span> \</span></span><br><span class="line"><span class="ruby">-advertise-client-urls <span class="symbol">http:</span>/<span class="regexp">/192.167.0.168:2379 \</span></span></span><br><span class="line"><span class="ruby">-listen-client-urls <span class="symbol">http:</span>/<span class="regexp">/0.0.0.0:2379 \</span></span></span><br><span class="line"><span class="ruby">-initial-advertise-peer-urls <span class="symbol">http:</span>/<span class="regexp">/192.167.0.168:2380 \</span></span></span><br><span class="line"><span class="ruby">-listen-peer-urls <span class="symbol">http:</span>/<span class="regexp">/0.0.0.0:2380 \</span></span></span><br><span class="line"><span class="ruby">-initial-cluster-token etcd-cluster \</span></span><br><span class="line"><span class="ruby">-initial-cluster autumn-client<span class="number">0</span>=<span class="symbol">http:</span>/<span class="regexp">/192.167.0.168:2380,autumn-client1=http:/</span><span class="regexp">/192.167.0.170:2480,autumn-client2=http:/</span><span class="regexp">/192.167.0.172:2580 \</span></span></span><br><span class="line"><span class="ruby">-initial-cluster-state new</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">sudo docker run -d -p <span class="number">2479</span><span class="symbol">:</span><span class="number">2479</span> -p <span class="number">2480</span><span class="symbol">:</span><span class="number">2480</span> \</span></span><br><span class="line"><span class="ruby">--restart=always \</span></span><br><span class="line"><span class="ruby">--net etcdnet \</span></span><br><span class="line"><span class="ruby">--ip <span class="number">192.167</span>.<span class="number">0</span>.<span class="number">170</span> \</span></span><br><span class="line"><span class="ruby">--name etcd1 quay.io/coreos/etcd /usr/local/bin/etcd \</span></span><br><span class="line"><span class="ruby">--name autumn-client1 \</span></span><br><span class="line"><span class="ruby">-advertise-client-urls <span class="symbol">http:</span>/<span class="regexp">/192.167.0.170:2479 \</span></span></span><br><span class="line"><span class="ruby">-listen-client-urls <span class="symbol">http:</span>/<span class="regexp">/0.0.0.0:2479 \</span></span></span><br><span class="line"><span class="ruby">-initial-advertise-peer-urls <span class="symbol">http:</span>/<span class="regexp">/192.167.0.170:2480 \</span></span></span><br><span class="line"><span class="ruby">-listen-peer-urls <span class="symbol">http:</span>/<span class="regexp">/0.0.0.0:2480 \</span></span></span><br><span class="line"><span class="ruby">-initial-cluster-token etcd-cluster \</span></span><br><span class="line"><span class="ruby">-initial-cluster autumn-client<span class="number">0</span>=<span class="symbol">http:</span>/<span class="regexp">/192.167.0.168:2380,autumn-client1=http:/</span><span class="regexp">/192.167.0.170:2480,autumn-client2=http:/</span><span class="regexp">/192.167.0.172:2580 \</span></span></span><br><span class="line"><span class="ruby">-initial-cluster-state new</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">sudo docker run -d -p <span class="number">2579</span><span class="symbol">:</span><span class="number">2579</span> -p <span class="number">2580</span><span class="symbol">:</span><span class="number">2580</span> \</span></span><br><span class="line"><span class="ruby">--restart=always \</span></span><br><span class="line"><span class="ruby">--net etcdnet \</span></span><br><span class="line"><span class="ruby">--ip <span class="number">192.167</span>.<span class="number">0</span>.<span class="number">172</span> \</span></span><br><span class="line"><span class="ruby">--name etcd2 quay.io/coreos/etcd /usr/local/bin/etcd \</span></span><br><span class="line"><span class="ruby">--name autumn-client2 \</span></span><br><span class="line"><span class="ruby">-advertise-client-urls <span class="symbol">http:</span>/<span class="regexp">/192.167.0.172:2579 \</span></span></span><br><span class="line"><span class="ruby">-listen-client-urls <span class="symbol">http:</span>/<span class="regexp">/0.0.0.0:2579 \</span></span></span><br><span class="line"><span class="ruby">-initial-advertise-peer-urls <span class="symbol">http:</span>/<span class="regexp">/192.167.0.172:2580 \</span></span></span><br><span class="line"><span class="ruby">-listen-peer-urls <span class="symbol">http:</span>/<span class="regexp">/0.0.0.0:2580 \</span></span></span><br><span class="line"><span class="ruby">-initial-cluster-token etcd-cluster \</span></span><br><span class="line"><span class="ruby">-initial-cluster autumn-client<span class="number">0</span>=<span class="symbol">http:</span>/<span class="regexp">/192.167.0.168:2380,autumn-client1=http:/</span><span class="regexp">/192.167.0.170:2480,autumn-client2=http:/</span><span class="regexp">/192.167.0.172:2580 \</span></span></span><br><span class="line"><span class="ruby">-initial-cluster-state new</span></span><br></pre></td></tr></table></figure>
-<p>两种管理后台</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name etcd-browser <span class="string">\</span></span><br><span class="line">-p <span class="number">8000</span>:<span class="number">8000</span> <span class="string">\</span></span><br><span class="line">--net etcdnet <span class="string">\</span></span><br><span class="line">--env ETCD_HOST=<span class="number">192.167</span>.<span class="number">0.168</span> <span class="string">\</span></span><br><span class="line">--env ETCD_PORT=<span class="number">2379</span> <span class="string">\</span></span><br><span class="line">buddho/etcd-browser</span><br><span class="line"></span><br><span class="line">docker run -<span class="literal">it</span> -d --name etcdkeeper <span class="string">\</span></span><br><span class="line">-p <span class="number">8001</span>:<span class="number">8080</span> <span class="string">\</span></span><br><span class="line">--net etcdnet <span class="string">\</span></span><br><span class="line">--env ETCDCTL_API=<span class="number">3</span> <span class="string">\</span></span><br><span class="line">--env ETCD_ENDPOINTS=<span class="string">"http://192.167.0.168:2379,http://192.167.0.170:2479,http://192.167.0.172:2579"</span> <span class="string">\</span></span><br><span class="line">deltaprojects/etcdkeeper</span><br></pre></td></tr></table></figure>
-
+        <p>记录一下 etcd 搭建命令</p>
+        
       
 
       
@@ -653,7 +658,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/08/etcd/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/07/08/etcd-build/">展开全文 >></a>
         </p>
       
 
@@ -683,19 +688,19 @@
 
 
   
-    <article id="post-golang-build" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-go-build" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/07/golang-build/">Golang多平台交叉编译</a>
+      <a class="article-title" href="/2020/07/07/go-build/">Golang多平台交叉编译</a>
     </h1>
   
 
         
-        <a href="/2020/07/07/golang-build/" class="archive-article-date">
+        <a href="/2020/07/07/go-build/" class="archive-article-date">
   	<time datetime="2020-07-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
         
@@ -733,7 +738,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/07/golang-build/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/07/07/go-build/">展开全文 >></a>
         </p>
       
 
@@ -822,6 +827,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -860,19 +869,19 @@
 
 
   
-    <article id="post-docker-mysql8.0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker-mysql8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/docker-mysql8.0/">docker启动mysql8.0服务遇到的问题记录</a>
+      <a class="article-title" href="/2020/05/20/docker-mysql8/">docker启动mysql8.0服务遇到的问题记录</a>
     </h1>
   
 
         
-        <a href="/2020/05/20/docker-mysql8.0/" class="archive-article-date">
+        <a href="/2020/05/20/docker-mysql8/" class="archive-article-date">
   	<time datetime="2020-05-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
 </a>
         
@@ -908,7 +917,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/docker-mysql8.0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/20/docker-mysql8/">展开全文 >></a>
         </p>
       
 
@@ -1147,6 +1156,22 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
@@ -1155,19 +1180,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">TCP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1179,23 +1196,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,7 +1224,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">

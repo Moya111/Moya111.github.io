@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>//sunxingboo.github.io/2021/07/09/math/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/03/09/var-expand/</loc>
+    <loc>//sunxingboo.github.io/2020/03/19/sort-uniq/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
     <loc>//sunxingboo.github.io/2019/12/17/yilia-issue/</loc>
@@ -13,13 +10,16 @@
     <loc>//sunxingboo.github.io/2019/12/20/xargs/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
+    <loc>//sunxingboo.github.io/2020/03/09/var-expand/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2020/07/03/tree-traversal/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
     <loc>//sunxingboo.github.io/2020/07/18/trie/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2019/12/28/set/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/03/19/sort-and-uniq/</loc>
+    <loc>//sunxingboo.github.io/2020/01/16/tcp-three-shake/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
     <loc>//sunxingboo.github.io/2020/03/12/shell-test/</loc>
@@ -28,10 +28,7 @@
     <loc>//sunxingboo.github.io/2020/03/08/shell-symbol/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/07/03/tree-traversal/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/03/08/position-param/</loc>
+    <loc>//sunxingboo.github.io/2019/12/28/linux-set/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
     <loc>//sunxingboo.github.io/2020/03/22/redis-replica/</loc>
@@ -40,16 +37,19 @@
     <loc>//sunxingboo.github.io/2020/03/22/redis-persistence/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/03/17/mysql-index/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/01/07/php_operator/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
     <loc>//sunxingboo.github.io/2020/03/11/raspberry-ssh/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/03/24/http-status-code/</loc>
+    <loc>//sunxingboo.github.io/2020/03/08/shell-params/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2020/01/07/php-operator/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2020/03/17/mysql-index/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2020/03/13/linus-uid-gid-bit/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
     <loc>//sunxingboo.github.io/2020/03/04/linux-find/</loc>
@@ -58,52 +58,52 @@
     <loc>//sunxingboo.github.io/2020/02/27/js-closure/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/03/13/linux-setuid-setgid-setbit/</loc>
+    <loc>//sunxingboo.github.io/2020/03/24/http-status-code/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2021/07/06/mole-vote/</loc>
+    <loc>//sunxingboo.github.io/2020/01/09/hsts/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2019/12/21/hexoBlogToHost/</loc>
+    <loc>//sunxingboo.github.io/2019/12/21/hexo-to-host/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2021/07/08/hexo-code-block/</loc>
+    <loc>//sunxingboo.github.io/2020/02/26/heap-sort/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/07/07/golang-build/</loc>
+    <loc>//sunxingboo.github.io/2020/07/07/go-build/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2020/04/05/go-panic/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2020/04/04/go-new-and-make/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
     <loc>//sunxingboo.github.io/2020/04/19/go-mod/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/04/05/go-panic-recover-defer/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/07/08/etcd/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/04/04/go-new-make/</loc>
+    <loc>//sunxingboo.github.io/2020/07/08/etcd-build/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
     <loc>//sunxingboo.github.io/2020/03/02/dockerfile/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/01/16/TCP_three_shake_hands/</loc>
+    <loc>//sunxingboo.github.io/2020/05/20/docker-mysql8/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/05/20/docker-mysql8.0/</loc>
+    <loc>//sunxingboo.github.io/2020/03/05/linux-compress/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
-    <loc>//sunxingboo.github.io/2020/03/05/compress/</loc>
+    <loc>//sunxingboo.github.io/2021/07/09/math/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2021/07/06/mole-vote/</loc>
+    <lastmod>2021-07-09</lastmod>
+  </url>  <url>
+    <loc>//sunxingboo.github.io/2021/07/08/hexo-code-block/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>  <url>
     <loc>//sunxingboo.github.io/2021/06/25/bit/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/02/26/HeapSort/</loc>
-    <lastmod>2021-07-09</lastmod>
-  </url>  <url>
-    <loc>//sunxingboo.github.io/2020/01/09/HSTS/</loc>
     <lastmod>2021-07-09</lastmod>
   </url>
 </urlset>
