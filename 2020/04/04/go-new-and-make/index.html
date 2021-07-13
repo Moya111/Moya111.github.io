@@ -183,7 +183,7 @@
 <h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The new built-in function allocates memory. The first argument is a type,</span></span><br><span class="line"><span class="comment">// not a value, and the value returned is a pointer to a newly</span></span><br><span class="line"><span class="comment">// allocated zero value of that type.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">new</span><span class="params">(Type)</span> *<span class="title">Type</span></span></span><br></pre></td></tr></table></figure>
 <p>内置函数<code>new</code>分配内存。</p>
 <p>第一个参数是一个类型，而不是值，这个函数会分配一个这个类型的零值，并返回这个零值的指针。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">type</span> TestNew <span class="keyword">struct</span> &#123;</span><br><span class="line">	str <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	t1 := <span class="built_in">new</span>(TestNew)</span><br><span class="line">	t2 := &amp;TestNew&#123;&#125;</span><br><span class="line">	fmt.Println(reflect.TypeOf(t1), reflect.TypeOf(t2))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// *main.TestNew *main.TestNew</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">type</span> TestNew <span class="keyword">struct</span> &#123;</span><br><span class="line">  str <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  t1 := <span class="built_in">new</span>(TestNew)</span><br><span class="line">  t2 := &amp;TestNew&#123;&#125;</span><br><span class="line">  fmt.Println(reflect.TypeOf(t1), reflect.TypeOf(t2))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// *main.TestNew *main.TestNew</span></span><br></pre></td></tr></table></figure>
 <p>这两种创建变量的方式作用是相同的。</p>
 <h2 id="make"><a href="#make" class="headerlink" title="make"></a>make</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The make built-in function allocates and initializes an object of type</span></span><br><span class="line"><span class="comment">// slice, map, or chan (only). Like new, the first argument is a type, not a</span></span><br><span class="line"><span class="comment">// value. Unlike new, make's return type is the same as the type of its</span></span><br><span class="line"><span class="comment">// argument, not a pointer to it. The specification of the result depends on</span></span><br><span class="line"><span class="comment">// the type:</span></span><br><span class="line"><span class="comment">//	Slice: The size specifies the length. The capacity of the slice is</span></span><br><span class="line"><span class="comment">//	equal to its length. A second integer argument may be provided to</span></span><br><span class="line"><span class="comment">//	specify a different capacity; it must be no smaller than the</span></span><br><span class="line"><span class="comment">//	length. For example, make([]int, 0, 10) allocates an underlying array</span></span><br><span class="line"><span class="comment">//	of size 10 and returns a slice of length 0 and capacity 10 that is</span></span><br><span class="line"><span class="comment">//	backed by this underlying array.</span></span><br><span class="line"><span class="comment">//	Map: An empty map is allocated with enough space to hold the</span></span><br><span class="line"><span class="comment">//	specified number of elements. The size may be omitted, in which case</span></span><br><span class="line"><span class="comment">//	a small starting size is allocated.</span></span><br><span class="line"><span class="comment">//	Channel: The channel's buffer is initialized with the specified</span></span><br><span class="line"><span class="comment">//	buffer capacity. If zero, or the size is omitted, the channel is</span></span><br><span class="line"><span class="comment">//	unbuffered.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">make</span><span class="params">(t Type, size ...IntegerType)</span> <span class="title">Type</span></span></span><br></pre></td></tr></table></figure>
 <p>内置函数<code>make</code>分配并初始化一个<code>slice</code>、<code>map</code>或者<code>chan</code>对象（只支持这三种）。</p>
@@ -500,11 +500,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,10 +528,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
@@ -548,11 +544,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">背包</a>
               </li>
              
               <li class="article-tag-list-item">

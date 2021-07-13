@@ -184,19 +184,207 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-math" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-bit-add" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/09/math/">Markdown 常用数学公式代码</a>
+      <a class="article-title" href="/2021/07/13/bit-add/">不使用加法计算两数之和</a>
     </h1>
   
 
         
-        <a href="/2021/07/09/math/" class="archive-article-date">
+        <a href="/2021/07/13/bit-add/" class="archive-article-date">
+  	<time datetime="2021-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>举例两个数字的位图</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 //0011</span><br><span class="line">1 //0001</span><br></pre></td></tr></table></figure>
+<p>当相加时，每个位上都可能发生四种种情况：</p>
+<ol>
+<li>两个数对应的位都是 <em>0</em>，相加后仍然为 <em>0</em>。</li>
+<li>两个数对应的位一个是 <em>1</em>，另一个是 <em>0</em>，相加后为 <em>1</em>。</li>
+<li>两个数对应的位都是 <em>1</em>，相加后产生进位，结果为 <em>0</em></li>
+<li>两个数对应的位一个是 <em>1</em>，另一个是 <em>0</em>。相加后为 <em>1</em>，然后接收到了下一位相加产生的进位 <em>1</em>，最终结果为 <em>0</em>，并且产生了一个进位 <em>1</em>。</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{array}{cc|c}
+           A&B&F\\
+    \hline 0&0&0\\
+           0&1&1\\
+           1&0&1\\
+           1&1&0\\
+\end{array}</script><p>若不考虑进位，只针对每一位来看，这就是一个异或操作。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/13/bit-add/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-01bag" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/12/01bag/">01背包</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/12/01bag/" class="archive-article-date">
+  	<time datetime="2021-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简单理解-01-背包问题性质"><a href="#简单理解-01-背包问题性质" class="headerlink" title="简单理解 01 背包问题性质"></a>简单理解 01 背包问题性质</h2><p>每个物品的数量只有 1 个，选择情况只有<strong>选</strong>和<strong>不选</strong>两种，就是 01 背包。</p>
+<p>暴力解法时间复杂度为 <strong>O($2^n$)</strong>。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>一个背包，它最大能收纳的重量为 <em>bagWeight</em>。</p>
+<p>一组物品，每个物品只有一个，第 <em>i</em> 个物品的重量为 <em>weights[i]</em>，它的价值为 <em>values[i]</em>。</p>
+<p>就算背包能容纳的物品的最大价值。</p>
+<script type="math/tex; mode=display">
+示例\ \ \
+\begin{array}{|c|c|c|c|}
+    \hline bagWeight&4\\
+    \hline weights&1&3&4\\
+    \hline values&15&20&30\\
+    \hline
+\end{array}</script>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">背包</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/12/01bag/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-markdown-math" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/09/markdown-math/">Markdown 常用数学公式代码</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/09/markdown-math/" class="archive-article-date">
   	<time datetime="2021-07-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-09</time>
 </a>
         
@@ -251,7 +439,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/09/math/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/09/markdown-math/">展开全文 >></a>
         </p>
       
 
@@ -281,19 +469,19 @@
 
 
   
-    <article id="post-hexo-code-block" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hero-code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/08/hexo-code-block/">记录 hexo 生成代码块间隙过大的问题解决</a>
+      <a class="article-title" href="/2021/07/08/hero-code/">记录 hexo 生成代码块间隙过大的问题解决</a>
     </h1>
   
 
         
-        <a href="/2021/07/08/hexo-code-block/" class="archive-article-date">
+        <a href="/2021/07/08/hero-code/" class="archive-article-date">
   	<time datetime="2021-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-08</time>
 </a>
         
@@ -325,7 +513,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/08/hexo-code-block/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/08/hero-code/">展开全文 >></a>
         </p>
       
 
@@ -434,19 +622,19 @@
 
 
   
-    <article id="post-bit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-move-bit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/25/bit/">右移一位和除2的区别</a>
+      <a class="article-title" href="/2021/06/25/move-bit/">右移一位和除2的区别</a>
     </h1>
   
 
         
-        <a href="/2021/06/25/bit/" class="archive-article-date">
+        <a href="/2021/06/25/move-bit/" class="archive-article-date">
   	<time datetime="2021-06-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
 </a>
         
@@ -479,7 +667,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/25/bit/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/06/25/move-bit/">展开全文 >></a>
         </p>
       
 
@@ -570,11 +758,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字典树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字典树</a>
         		</li>
       		
 		</ul>
@@ -869,158 +1057,6 @@
 
 
   
-    <article id="post-docker-mysql8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/docker-mysql8/">docker启动mysql8.0服务遇到的问题记录</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/20/docker-mysql8/" class="archive-article-date">
-  	<time datetime="2020-05-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://blog-static-resources.oss-cn-beijing.aliyuncs.com/blogImg/docker.jpg" alt=""></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/docker-mysql8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-go-mod" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/19/go-mod/">go mod的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/19/go-mod/" class="archive-article-date">
-  	<time datetime="2020-04-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://blog-static-resources.oss-cn-beijing.aliyuncs.com/blogImg/go-mod.png" alt=""></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/19/go-mod/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1180,11 +1216,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1208,10 +1244,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
@@ -1228,11 +1260,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">背包</a>
               </li>
              
               <li class="article-tag-list-item">

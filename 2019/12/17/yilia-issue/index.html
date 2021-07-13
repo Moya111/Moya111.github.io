@@ -180,8 +180,8 @@
         <p>解决办法：修改 <code>themes/yilia/layout/_partial/post/left-col.ejs</code> 文件中 <code>&lt;nav class=&quot;header-smart-menu&quot;&gt;</code>。</p>
 <a id="more"></a>
 <p>搜索 header-smart-menu</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改前</span></span><br><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"header-smart-menu"</span>&gt;</span><br><span class="line">    		&lt;% <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> theme.smart_menu)&#123; %&gt;</span><br><span class="line">    			&lt;% <span class="keyword">if</span>(theme.smart_menu[i])&#123; %&gt;</span><br><span class="line">    			&lt;a q-on=<span class="string">"click: openSlider(e, '&lt;%-i%&gt;')"</span> href=<span class="string">"javascript:void(0)"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.smart_menu</span>[<span class="attr">i</span>] %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">    			&lt;% &#125; %&gt;</span><br><span class="line">            &lt;%&#125;%&gt;</span><br><span class="line">		&lt;<span class="regexp">/nav&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改后 添加 target="_self" 属性</span></span><br><span class="line"><span class="comment">//如果原本是 target="_blank" 则将这个属性去掉</span></span><br><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"header-smart-menu"</span>&gt;</span><br><span class="line">    		&lt;% <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> theme.smart_menu)&#123; %&gt;</span><br><span class="line">    			&lt;% <span class="keyword">if</span>(theme.smart_menu[i])&#123; %&gt;</span><br><span class="line">    			&lt;a q-on=<span class="string">"click: openSlider(e, '&lt;%-i%&gt;')"</span> target=<span class="string">"_self"</span> href=<span class="string">"javascript:void(0)"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.smart_menu</span>[<span class="attr">i</span>] %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">    			&lt;% &#125; %&gt;</span><br><span class="line">            &lt;%&#125;%&gt;</span><br><span class="line">		&lt;<span class="regexp">/nav&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改前</span></span><br><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"header-smart-menu"</span>&gt;</span><br><span class="line">    		&lt;% <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> theme.smart_menu)&#123; %&gt;</span><br><span class="line">    			&lt;% <span class="keyword">if</span>(theme.smart_menu[i])&#123; %&gt;</span><br><span class="line">    			&lt;a q-on=<span class="string">"click: openSlider(e, '&lt;%-i%&gt;')"</span> href=<span class="string">"javascript:void(0)"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.smart_menu</span>[<span class="attr">i</span>] %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">    			&lt;% &#125; %&gt;</span><br><span class="line">            &lt;%&#125;%&gt;</span><br><span class="line">    &lt;<span class="regexp">/nav&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改后 添加 target="_self" 属性</span></span><br><span class="line"><span class="comment">//如果原本是 target="_blank" 则将这个属性去掉</span></span><br><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"header-smart-menu"</span>&gt;</span><br><span class="line">    		&lt;% <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> theme.smart_menu)&#123; %&gt;</span><br><span class="line">    			&lt;% <span class="keyword">if</span>(theme.smart_menu[i])&#123; %&gt;</span><br><span class="line">    			&lt;a q-on=<span class="string">"click: openSlider(e, '&lt;%-i%&gt;')"</span> target=<span class="string">"_self"</span> href=<span class="string">"javascript:void(0)"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.smart_menu</span>[<span class="attr">i</span>] %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">    			&lt;% &#125; %&gt;</span><br><span class="line">            &lt;%&#125;%&gt;</span><br><span class="line">    &lt;<span class="regexp">/nav&gt;</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -472,11 +472,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,10 +500,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
@@ -520,11 +516,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">背包</a>
               </li>
              
               <li class="article-tag-list-item">

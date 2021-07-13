@@ -196,11 +196,11 @@
 <h2 id="shift用于处理大量参数"><a href="#shift用于处理大量参数" class="headerlink" title="shift用于处理大量参数"></a>shift用于处理大量参数</h2><p><code>shift</code>命令的作用是把除了<code>$0</code>以外的全部位置参数向左移动指定的间隔</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">shift 	#左移一位，$1被丢弃，$2移到$1，$3移到$2...</span><br><span class="line">shift 2 #左移两位，$1与$2被丢弃，$3移到$1，$4移到$2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>示例脚本如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> posit-param2</span></span><br><span class="line">count=1</span><br><span class="line">while [ $# -ne 0 ]; do</span><br><span class="line">	echo "param $count is $1"</span><br><span class="line">	count=$(( count + 1 ))</span><br><span class="line">	shift</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> posit-param2</span></span><br><span class="line">count=1</span><br><span class="line">while [ $# -ne 0 ]; do</span><br><span class="line">  echo "param $count is $1"</span><br><span class="line">  count=$(( count + 1 ))</span><br><span class="line">  shift</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./posit-param2 a b c</span><br><span class="line">param 1 is a</span><br><span class="line">param 2 is b</span><br><span class="line">param 3 is c</span><br></pre></td></tr></table></figure>
 <h2 id="与"><a href="#与" class="headerlink" title="$*与$@"></a>$*与$@</h2><p><code>$*</code>扩展为从<code>1</code>开始的位置参数列表。当被双引号包裹时（<code>&quot;$*&quot;</code>），将全部位置参数扩展为双引号引用的一个字符串，每个位置参数以<code>IFS</code>（通常默认为空格）变量分隔开。</p>
 <p><code>$@</code>扩展为从<code>1</code>开始的位置参数列表。当被双引号包裹时（<code>&quot;$@&quot;</code>），将每个参数扩展为双引号引用的独立的字符串。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> posit-param3</span></span><br><span class="line">print_params() &#123;</span><br><span class="line">	echo "\$1 = $1"</span><br><span class="line">	echo "\$2 = $2"</span><br><span class="line">	echo "\$3 = $3"</span><br><span class="line">	echo "\$4 = $4"</span><br><span class="line">&#125;</span><br><span class="line">pass_params() &#123;</span><br><span class="line">	echo '$*:'; print_params $*</span><br><span class="line">	echo '"$*":'; print_params "$*"</span><br><span class="line">	echo '$@:'; print_params $@</span><br><span class="line">	echo '"$@":'; print_params "$@"</span><br><span class="line">&#125;</span><br><span class="line">pass_params "word" "words with spaces"</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> posit-param3</span></span><br><span class="line">print_params() &#123;</span><br><span class="line">  echo "\$1 = $1"</span><br><span class="line">  echo "\$2 = $2"</span><br><span class="line">  echo "\$3 = $3"</span><br><span class="line">  echo "\$4 = $4"</span><br><span class="line">&#125;</span><br><span class="line">pass_params() &#123;</span><br><span class="line">  echo '$*:'; print_params $*</span><br><span class="line">  echo '"$*":'; print_params "$*"</span><br><span class="line">  echo '$@:'; print_params $@</span><br><span class="line">  echo '"$@":'; print_params "$@"</span><br><span class="line">&#125;</span><br><span class="line">pass_params "word" "words with spaces"</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$ ./posit-param3</span><br><span class="line"><span class="comment">#脚本输出</span></span><br><span class="line">$*:</span><br><span class="line"><span class="variable">$1</span> = word</span><br><span class="line"><span class="variable">$2</span> = words</span><br><span class="line"><span class="variable">$3</span> = with</span><br><span class="line"><span class="variable">$4</span> = spaces</span><br><span class="line"></span><br><span class="line"><span class="string">"$*"</span>:</span><br><span class="line"><span class="variable">$1</span> = word words with spaces</span><br><span class="line"><span class="variable">$2</span> =</span><br><span class="line"><span class="variable">$3</span> =</span><br><span class="line"><span class="variable">$4</span> =</span><br><span class="line"></span><br><span class="line"><span class="variable">$@</span>:</span><br><span class="line"><span class="variable">$1</span> = word</span><br><span class="line"><span class="variable">$2</span> = words</span><br><span class="line"><span class="variable">$3</span> = with</span><br><span class="line"><span class="variable">$4</span> = spaces</span><br><span class="line"></span><br><span class="line"><span class="string">"<span class="variable">$@</span>"</span>:</span><br><span class="line"><span class="variable">$1</span> = word</span><br><span class="line"><span class="variable">$2</span> = words with spaces</span><br><span class="line"><span class="variable">$3</span> =</span><br><span class="line"><span class="variable">$4</span> =</span><br></pre></td></tr></table></figure>
 <p>所以位置参数的扩展有<code>$*</code>、<code>&quot;$*&quot;</code>、<code>$@</code>、<code>&quot;$@&quot;</code>四种形式。通常情况下，<code>&quot;$@&quot;</code>会更符合我们的预期效果。</p>
 
@@ -498,11 +498,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,10 +526,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
@@ -546,11 +542,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">背包</a>
               </li>
              
               <li class="article-tag-list-item">
