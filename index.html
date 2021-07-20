@@ -184,29 +184,40 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-01bag-application" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-complete-pack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/15/01bag-application/">几道01背包的应用题</a>
+      <a class="article-title" href="/2021/07/19/complete-pack/">完全背包</a>
     </h1>
   
 
         
-        <a href="/2021/07/15/01bag-application/" class="archive-article-date">
-  	<time datetime="2021-07-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-15</time>
+        <a href="/2021/07/19/complete-pack/" class="archive-article-date">
+  	<time datetime="2021-07-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>学完 $01$ 背包之后，简单记录一下几道 $01$ 背包应用题的解题思路和代码实现（有的题目在不考虑超时的情况下，也可以通过回溯等其他解法求解，这里暂不考虑，只记录利用动态规划 $01$ 背包的解题思路）。</p>
-<p>通用函数 $max$ 代码如下，后续不再记录：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> i &gt; j &#123;</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="理解完全背包的性质"><a href="#理解完全背包的性质" class="headerlink" title="理解完全背包的性质"></a>理解完全背包的性质</h2><p>在<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题中，每一个物品的数量只有一个（也就是说每个物品只能选择一次）。</p>
+<p>而当每个物品的数量有 $N$ 个（也就是对于同一重量、同一价值的物品可以多次选择）时，这就是一个<strong>完全背包</strong>的问题。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>把<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题稍作修改就成为了<strong>完全背包</strong>问题。</p>
+<p>一个背包，它最大能收纳的重量为 $bagWeight$。</p>
+<p>一组物品，每个物品有无数个（可以重复选择），第 $i$ 个物品的重量为 $weights[i]$，它的价值为 $values[i]$。</p>
+<p>求背包能容纳的物品的最大价值。</p>
+<script type="math/tex; mode=display">
+示例\ \ \
+\begin{array}{|c|c|c|c|}
+    \hline bagWeight&4\\
+    \hline weights&1&3&4\\
+    \hline values&15&20&30\\
+    \hline
+\end{array}</script>
         
       
 
@@ -238,7 +249,173 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/15/01bag-application/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/19/complete-pack/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-sub-array-sum" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/18/sub-array-sum/">一道很有代表性的数组动态规划问题</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/18/sub-array-sum/" class="archive-article-date">
+  	<time datetime="2021-07-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="连续子数组的最大和"><a href="#连续子数组的最大和" class="headerlink" title="连续子数组的最大和"></a>连续子数组的最大和</h2><p><a href="https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/" target="_blank" rel="noopener">leetcode 剑指 offer 42</a></p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
+<p><em>要求时间复杂度为 $O(n)$。</em></p>
+<p>示例1：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="number">6</span></span><br><span class="line">解释: 连续子数组 [<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>] 的和最大，为 <span class="number">6</span>。</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/18/sub-array-sum/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-01pack-application" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/15/01pack-application/">几道01背包的应用题</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/15/01pack-application/" class="archive-article-date">
+  	<time datetime="2021-07-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学完 $01$ 背包之后，简单记录一下几道 $01$ 背包应用题的解题思路和代码实现（有的题目在不考虑超时的情况下，也可以通过回溯等其他解法求解，这里暂不考虑，只记录利用动态规划 $01$ 背包的解题思路）。</p>
+<p>通用函数 $max$ 代码如下，后续不再记录：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> i &gt; j &#123;</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">背包</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/15/01pack-application/">展开全文 >></a>
         </p>
       
 
@@ -362,19 +539,19 @@
 
 
   
-    <article id="post-01bag" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-01pack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/12/01bag/">01背包</a>
+      <a class="article-title" href="/2021/07/12/01pack/">01背包</a>
     </h1>
   
 
         
-        <a href="/2021/07/12/01bag/" class="archive-article-date">
+        <a href="/2021/07/12/01pack/" class="archive-article-date">
   	<time datetime="2021-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         
@@ -384,13 +561,13 @@
       
         <h2 id="简单理解-01-背包问题性质"><a href="#简单理解-01-背包问题性质" class="headerlink" title="简单理解 01 背包问题性质"></a>简单理解 01 背包问题性质</h2><p>每个物品的数量只有 $1$ 个，选择情况只有<strong>选</strong>和<strong>不选</strong>两种，就是 $01$ 背包。</p>
 <p>暴力解法时间复杂度为 <strong>$O(2^n)$</strong>。</p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>一个背包，它最大能收纳的重量为 $bagWeight$。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>一个背包，它最大能收纳的重量为 $packWeight$。</p>
 <p>一组物品，每个物品只有一个，第 $i$ 个物品的重量为 $weights[i]$，它的价值为 $values[i]$。</p>
 <p>就算背包能容纳的物品的最大价值。</p>
 <script type="math/tex; mode=display">
 示例\ \ \
 \begin{array}{|c|c|c|c|}
-    \hline bagWeight&4\\
+    \hline packWeight&4\\
     \hline weights&1&3&4\\
     \hline values&15&20&30\\
     \hline
@@ -426,7 +603,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/12/01bag/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/12/01pack/">展开全文 >></a>
         </p>
       
 
@@ -884,160 +1061,6 @@
 
 
   
-    <article id="post-etcd-build" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/08/etcd-build/">etcd简单服务搭建方式记录</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/08/etcd-build/" class="archive-article-date">
-  	<time datetime="2020-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录一下 etcd 搭建命令</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">etcd</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/08/etcd-build/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-go-build" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/07/go-build/">Golang多平台交叉编译</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/07/go-build/" class="archive-article-date">
-  	<time datetime="2020-07-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Mac 下编译 Linux 和 Windows 64位可执行程序</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CGO_ENABLED</span>=0 <span class="attribute">GOOS</span>=linux <span class="attribute">GOARCH</span>=amd64 go build main.go</span><br><span class="line"><span class="attribute">CGO_ENABLED</span>=0 <span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 go build main.go</span><br></pre></td></tr></table></figure>
-<p>Linux 下编译 Mac 和 Windows 64位可执行程序</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CGO_ENABLED</span>=0 <span class="attribute">GOOS</span>=darwin <span class="attribute">GOARCH</span>=amd64 go build main.go</span><br><span class="line"><span class="attribute">CGO_ENABLED</span>=0 <span class="attribute">GOOS</span>=windows <span class="attribute">GOARCH</span>=amd64 go build main.go</span><br></pre></td></tr></table></figure>
-<p>Windows 下编译 Mac 和 Linux 64位可执行程序</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">SET</span> <span class="attribute">CGO_ENABLED</span>=0</span><br><span class="line"><span class="builtin-name">SET</span> <span class="attribute">GOOS</span>=darwin</span><br><span class="line"><span class="builtin-name">SET</span> <span class="attribute">GOARCH</span>=amd64</span><br><span class="line">go build main.go</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">SET</span> <span class="attribute">CGO_ENABLED</span>=0</span><br><span class="line"><span class="builtin-name">SET</span> <span class="attribute">GOOS</span>=linux</span><br><span class="line"><span class="builtin-name">SET</span> <span class="attribute">GOARCH</span>=amd64</span><br><span class="line">go build main.go</span><br></pre></td></tr></table></figure>
-<p>GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）<br>GOARCH：目标平台的体系架构（386、amd64、arm）<br>交叉编译不支持 CGO 所以要禁用它</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/07/go-build/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1181,6 +1204,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
@@ -1193,19 +1224,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,6 +1236,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Golang</a>
               </li>
              
@@ -1225,19 +1248,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,6 +1265,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

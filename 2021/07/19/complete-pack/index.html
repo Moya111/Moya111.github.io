@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//sunxingboo.github.io">
-  <title>01背包 | 码农笔记</title>
+  <title>完全背包 | 码农笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简单理解 01 背包问题性质每个物品的数量只有 $1$ 个，选择情况只有选和不选两种，就是 $01$ 背包。 暴力解法时间复杂度为 $O(2^n)$。 问题描述一个背包，它最大能收纳的重量为 $bagWeight$。 一组物品，每个物品只有一个，第 $i$ 个物品的重量为 $weights[i]$，它的价值为 $values[i]$。 就算背包能容纳的物品的最大价值。  示例\ \ \ \begi">
+  <meta name="description" content="理解完全背包的性质在 $01$ 背包 问题中，每一个物品的数量只有一个（也就是说每个物品只能选择一次）。 而当每个物品的数量有 $N$ 个（也就是对于同一重量、同一价值的物品可以多次选择）时，这就是一个完全背包的问题。 问题描述把 $01$ 背包 问题稍作修改就成为了完全背包问题。 一个背包，它最大能收纳的重量为 $bagWeight$。 一组物品，每个物品有无数个（可以重复选择），第 $i$ 个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="01背包">
-<meta property="og:url" content="2021/07/12/01bag/index.html">
+<meta property="og:title" content="完全背包">
+<meta property="og:url" content="2021/07/19/complete-pack/index.html">
 <meta property="og:site_name" content="码农笔记">
-<meta property="og:description" content="简单理解 01 背包问题性质每个物品的数量只有 $1$ 个，选择情况只有选和不选两种，就是 $01$ 背包。 暴力解法时间复杂度为 $O(2^n)$。 问题描述一个背包，它最大能收纳的重量为 $bagWeight$。 一组物品，每个物品只有一个，第 $i$ 个物品的重量为 $weights[i]$，它的价值为 $values[i]$。 就算背包能容纳的物品的最大价值。  示例\ \ \ \begi">
+<meta property="og:description" content="理解完全背包的性质在 $01$ 背包 问题中，每一个物品的数量只有一个（也就是说每个物品只能选择一次）。 而当每个物品的数量有 $N$ 个（也就是对于同一重量、同一价值的物品可以多次选择）时，这就是一个完全背包的问题。 问题描述把 $01$ 背包 问题稍作修改就成为了完全背包问题。 一个背包，它最大能收纳的重量为 $bagWeight$。 一组物品，每个物品有无数个（可以重复选择），第 $i$ 个">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-14T10:44:25.682Z">
+<meta property="article:published_time" content="2021-07-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-20T09:52:53.826Z">
 <meta property="article:author" content="孙十一">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="动态规划">
@@ -159,31 +159,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-01bag" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-complete-pack" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      01背包
+      完全背包
     </h1>
   
 
         
-        <a href="/2021/07/12/01bag/" class="archive-article-date">
-  	<time datetime="2021-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+        <a href="/2021/07/19/complete-pack/" class="archive-article-date">
+  	<time datetime="2021-07-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简单理解-01-背包问题性质"><a href="#简单理解-01-背包问题性质" class="headerlink" title="简单理解 01 背包问题性质"></a>简单理解 01 背包问题性质</h2><p>每个物品的数量只有 $1$ 个，选择情况只有<strong>选</strong>和<strong>不选</strong>两种，就是 $01$ 背包。</p>
-<p>暴力解法时间复杂度为 <strong>$O(2^n)$</strong>。</p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>一个背包，它最大能收纳的重量为 $bagWeight$。</p>
-<p>一组物品，每个物品只有一个，第 $i$ 个物品的重量为 $weights[i]$，它的价值为 $values[i]$。</p>
-<p>就算背包能容纳的物品的最大价值。</p>
+        <h2 id="理解完全背包的性质"><a href="#理解完全背包的性质" class="headerlink" title="理解完全背包的性质"></a>理解完全背包的性质</h2><p>在<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题中，每一个物品的数量只有一个（也就是说每个物品只能选择一次）。</p>
+<p>而当每个物品的数量有 $N$ 个（也就是对于同一重量、同一价值的物品可以多次选择）时，这就是一个<strong>完全背包</strong>的问题。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>把<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题稍作修改就成为了<strong>完全背包</strong>问题。</p>
+<p>一个背包，它最大能收纳的重量为 $bagWeight$。</p>
+<p>一组物品，每个物品有无数个（可以重复选择），第 $i$ 个物品的重量为 $weights[i]$，它的价值为 $values[i]$。</p>
+<p>求背包能容纳的物品的最大价值。</p>
 <script type="math/tex; mode=display">
 示例\ \ \
 \begin{array}{|c|c|c|c|}
@@ -192,34 +193,19 @@
     \hline values&15&20&30\\
     \hline
 \end{array}</script><a id="more"></a>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>总体可以理解为有两个维度的变量</p>
-<ul>
-<li>背包容量</li>
-<li>物品数量</li>
-</ul>
-<p>假设物品共有 $i$ 个，背包的最大收纳重量为 $j$。</p>
-<p>那么这个问题的答案就是从这 $i$ 个物品里任意选择若干个放入容量为 $j$ 背包，背包所能收纳的物品的最大价值。</p>
-<p>在选择第 $i$ 个物品时，有两种情况（<strong>这两种情况是由两种不同的选择方案导致的</strong>）：</p>
-<ul>
-<li><p>对前面 $i - 1$ 个物品进行选择后，此时背包的剩余容量不够装下第 $i$ 个物品了（不选择第 $i$ 个物品）。也就是在这种选择方案下，$i$ 个物品和 $i - 1$ 个物品的最大价值是相同的。</p>
-</li>
-<li><p>剩余容量足够装下第 $i$ 个物品，那么它需要占用 $weights[i]$ 的容量。在这个选择方案中，其余的 $i - 1$ 个物品收纳在 $j - weights[i]$ 容量内（并不一定完全占满）。</p>
-</li>
-</ul>
-<h2 id="二维-dp-数组"><a href="#二维-dp-数组" class="headerlink" title="二维 dp 数组"></a>二维 dp 数组</h2><p>可以维护一个二维 $dp$ 数组。</p>
-<h3 id="数组下标定义"><a href="#数组下标定义" class="headerlink" title="数组下标定义"></a>数组下标定义</h3><p>$i$：在 $0$ ~ $i$ 范围内随意选择物品。</p>
-<p>$j$：放入容量为 $j$ 的背包。</p>
-<p>$dp[i][j]$：所有可能的选择方案中，物品最大的价值。</p>
-<h3 id="递推公式及状态转移方程"><a href="#递推公式及状态转移方程" class="headerlink" title="递推公式及状态转移方程"></a>递推公式及状态转移方程</h3><p>通过上述分析，可以知道 $dp[i][j]$ 有两种情况。</p>
-<p>递推公式如下：</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>在<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题中，为了防止物品被重复选择，内层循环采用了逆序遍历。</p>
+<p>但是在完全背包问题中，可以重复选用物品，所以将内层循环改为正序遍历就可以了。</p>
+<h2 id="二维-dp-数组"><a href="#二维-dp-数组" class="headerlink" title="二维 $dp$ 数组"></a>二维 $dp$ 数组</h2><p>这里 $dp$ 数组下标定义与<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 是相同的。</p>
+<p>$dp[i][j]$ 表示从下标为 $0$ ~ $i$ 的物品中任意选，背包最大容量为 $j$ 时，背包能容纳的最大重量。</p>
+<p>完全背包中 $dp[i][j]$ 同样可以从两种情况得到：</p>
 <script type="math/tex; mode=display">
 dp[i][j] = \begin{cases}
-dp[i - 1][j]\\dp[i - 1][j - weights[i]] + values[i]
-\end{cases}</script><p>那么显然，$dp[i][j]$ 应该取两者的最大值。</p>
-<p>状态转移方程如下：</p>
-<script type="math/tex; mode=display">
-dp[i][j] = max(dp[i - 1][j], \ dp[i - 1][j - weights[i]] \ +values[i])</script><h3 id="初始化-dp-数组"><a href="#初始化-dp-数组" class="headerlink" title="初始化 dp 数组"></a>初始化 dp 数组</h3><p><strong>第一种初始化方式</strong></p>
-<p>考虑这样一个二维数组的情况</p>
+    dp[i - 1][j]\\
+    dp[i][j - weights[i]] + values[i]
+\end{cases}</script><p>第一种情况，假设此时背包剩余容量已无法容纳物品 $i$。背包最大容量为 $j$， 从下标为 $0$ ~ $i$ 的物品中任意选择物品得到的物品最大价值，与背包最大容量为 $j$， 从下标为 $0$ ~ $i - 1$ 的物品中任意选择物品得到的物品最大价值是相同的。</p>
+<p>第二种情况，假设背包剩余容量可以容纳物品 $i$。显然把它放进背包需要消耗 $weights[i]$ 的容量，也就是扣除一个物品 $i$ 的重量后，背包剩余容量为 $j - weights[i]$，则从下标为 $0$ ~ $i$ 的物品中任意选择物品，最大容量为 $j - weights[i]$ 的背包能容纳的物品最大价值就是 $dp[i][j - weights[i]]$，然后再加上一个刚刚被暂时扣除的物品 $i$ 的价值。</p>
+<p>直接列举一下 $dp$ 数组的推导过程：</p>
+<p>初始状态</p>
 <script type="math/tex; mode=display">
 \begin{array}{|c|c|c|c|c|c|}
     \hline     &重量0&重量1&重量2&重量3&重量4\\
@@ -227,168 +213,49 @@ dp[i][j] = max(dp[i - 1][j], \ dp[i - 1][j - weights[i]] \ +values[i])</script><
     \hline 物品1\\
     \hline 物品2\\
     \hline
-\end{array}</script><p>对于第一列，也就是当背包最大容量为 $0$ 的时候，无论怎么选择物品，所能容纳的物品价值都将是 $0$。</p>
-<p><em>所以将第 $1$ 列全部初始化为 $0$</em>。</p>
-<p>对于第一行，也就是只从第 1 个物品中选择时，那么只要它的重量小于或等于背包的重量，那么最大价值就是第 1 个物品的重量，否则最大价值就是 0。</p>
-<p><em>所以遍历第 $1$ 行，判断背包容量是否满足第一个物品，初始化对应的值。</em></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= bagWeight; i++ &#123;</span><br><span class="line">    <span class="keyword">if</span> i &gt;= weights[<span class="number">0</span>] &#123;</span><br><span class="line">      dp[<span class="number">0</span>][i] = values[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+\end{array}</script><p>初始化 $dp$ 数组后，背包最大重量为 $0$ 时，能容纳的物品最大价值必然是 $0$。</p>
 <script type="math/tex; mode=display">
 \begin{array}{|c|c|c|c|c|c|}
     \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&15&15&15&15\\
-    \hline 物品1 &0\\
-    \hline 物品2 &0\\
+    \hline 物品0&0\\
+    \hline 物品1&0\\
+    \hline 物品2&0\\
     \hline
-\end{array}</script><p>这种初始化方式虽然比较直观，但是并没有利用到递推公式，这样的操作看上去使遍历 $dp$ 的过程割裂成了两种方式。</p>
-<p><strong>第二种初始化方式</strong></p>
-<p>更好的做法是在对整个 $dp$ 数组的赋值过程中，始终使用的是同一种方式。</p>
-<p>根据递推公式，第一行的数据值的推导过程为：</p>
-<script type="math/tex; mode=display">
-dp[0][j] = max(dp[0][j], dp[0][j - weights[0]] + values[0])</script><p>那么这样初始化是否可以呢？</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= bagWeight; j++ &#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = max(dp[<span class="number">0</span>][j], dp[<span class="number">0</span>][j - weights[<span class="number">0</span>]] + values[<span class="number">0</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>打印一下初始化结果发现是不对的：</p>
+\end{array}</script><p>遍历物品 $0$ （物品可以重复选择了，遍历完物品 $0$ 后，第一行数据与 $01$ 背包明显不同）</p>
 <script type="math/tex; mode=display">
 \begin{array}{|c|c|c|c|c|c|}
     \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&15&30&45&60\\
-    \hline 物品1 &0\\
-    \hline 物品2 &0\\
+    \hline 物品0&0&15&30&45&60\\
+    \hline 物品1&0\\
+    \hline 物品2&0\\
     \hline
-\end{array}</script><p>但是物品 $0$ 只有一个，第一行的数据应该只有两种可能的值：</p>
-<ol>
-<li>背包重量 $j$ 装不下物品 $0$，初始化为 $0$。</li>
-<li>背包重量 $j$ 可以装下物品 $0$，初始化为 $values[0]$。</li>
-</ol>
-<p><em>但当使用上述方式初始化时，物品会被重复选用</em>。</p>
-<p>因为遍历到每一个位置，也就是 $dp[0][j]$ 时，当前位置此时还没有初始化，值是 $0$。所以最终取的结果值就是 $dp[0][j - weights[i]] + values[i]$，而 $dp[0][j - weights[i]]$ 指向的是刚刚已经初始化过的位置的值，再加上当前物品（物品 $0$）的价值。</p>
-<p>例如当 $j = 2$ 时：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-dp[0][2] &= max(dp[0][2], dp[0][2 - weights[0]] + values[0])\\
-         &= dp[0][2 - weights[0]] + values[0]\\
-         &= dp[0][1] + values[0]\\
-         &= 15 + 15\\
-         &= 30
-\end{aligned}</script><p>这是由于递推公式依赖当前位置同行的前面某个位置的值，这就导致了重复。那么可以逆序遍历，这样遍历到当前位置时，它的前面的位置都还没有初始化，就不会导致重复了。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j := bagWeight; j &gt;= <span class="number">1</span>; j-- &#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = max(dp[<span class="number">0</span>][j], dp[<span class="number">0</span>][j - weights[<span class="number">0</span>]] + values[<span class="number">0</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><p>考虑递推公式的两种情况，对于当前遍历到的位置 $dp[i][j]$，它依赖的数据位置下标为 $i - 1$，$j$ 和 $j - weights[i]$。</p>
-<p>都是小于当前位置下标的。</p>
-<p>所以利用状态转移方程处理剩余 $dp$ 数组位置时，即可以横向遍历，页可以纵向遍历（横向遍历，也就是先遍历物品选择范围的方式更容易理解）。</p>
-<h3 id="举例推导验证"><a href="#举例推导验证" class="headerlink" title="举例推导验证"></a>举例推导验证</h3><p>按上述分析的规律举例推导一下 $dp$ 数组，看是否满足。</p>
+\end{array}</script><p>遍历物品 $1$</p>
 <script type="math/tex; mode=display">
 \begin{array}{|c|c|c|c|c|c|}
     \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&15&15&15&15\\
-    \hline 物品1 &0&15&15&20&35\\
-    \hline 物品2 &0&15&15&20&35\\
+    \hline 物品0&0&15&30&45&60\\
+    \hline 物品1&0&0&0&45&60\\
+    \hline 物品2&0\\
     \hline
-\end{array}</script><h3 id="golang-代码实现"><a href="#golang-代码实现" class="headerlink" title="golang 代码实现"></a>golang 代码实现</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> weights = []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line"><span class="keyword">var</span> values = []<span class="keyword">int</span>&#123;<span class="number">15</span>, <span class="number">20</span>, <span class="number">30</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> i &gt; j &#123;</span><br><span class="line">    <span class="keyword">return</span> i</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">zeroOneBag</span><span class="params">(bagWeight <span class="keyword">int</span>, weights, values []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">  <span class="comment">//初始化</span></span><br><span class="line">  n := <span class="built_in">len</span>(weights)</span><br><span class="line">  dp := <span class="built_in">make</span>([][]<span class="keyword">int</span>, n)</span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ &#123;</span><br><span class="line">    dp[i] = <span class="built_in">make</span>([]<span class="keyword">int</span>, bagWeight + <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= bagWeight; i++ &#123;</span><br><span class="line">    <span class="keyword">if</span> i &gt;= weights[<span class="number">0</span>] &#123;</span><br><span class="line">      dp[<span class="number">0</span>][i] = values[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  fmt.Println(dp)</span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算dp数组的其他位置</span></span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; n; i++ &#123;</span><br><span class="line">    <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= bagWeight; j++ &#123;</span><br><span class="line">      <span class="keyword">if</span> j &lt; weights[i] &#123;</span><br><span class="line">        dp[i][j] = dp[i - <span class="number">1</span>][j]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dp[i][j] = max(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weights[i]] + values[i])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  fmt.Println(dp)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> dp[n - <span class="number">1</span>][bagWeight]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>另一种遍历方式是，当 $j - weights[i]$ 小于 $0$ 时，不做处理。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= bagWeight; j++ &#123;</span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; n; i++ &#123;</span><br><span class="line">    <span class="keyword">if</span> j &gt;= weights[i] &#123;</span><br><span class="line">      dp[i][j] = max(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weights[i]] + values[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>处理后的结果为：</p>
+\end{array}</script><p>遍历物品 $2$</p>
 <script type="math/tex; mode=display">
 \begin{array}{|c|c|c|c|c|c|}
     \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&15&15&15&15\\
-    \hline 物品1 &0&0&0&20&35\\
-    \hline 物品2 &0&0&0&0&35\\
-    \hline
-\end{array}</script><p>与上述另一个遍历版本相比，这里差异的几个位置为 $0$ ，这些位置实际是用不上的。</p>
-<h2 id="一维-dp-数组"><a href="#一维-dp-数组" class="headerlink" title="一维 dp 数组"></a>一维 dp 数组</h2><p>由上述二维 $dp$ 数组观察可知，实际需要的是最后一个元素，并且推导过程是一行一行进行的。</p>
-<p>所以实际上只需要维护一行就可以了，遍历推导下一行时直接覆盖到上一行对应的位置，因此维护一个一维 $dp$ 数组就可以了。</p>
-<p>整体思路与二维 $dp$ 数组时一致的，简单列举一下数据变化过程帮助理解：</p>
-<p>维护一个一维数组</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&0&0&0&0\\
-    \hline
-\end{array}</script><p>与二维 $dp$ 数组同样的初始化</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&15&15&15&15\\
-    \hline
-\end{array}</script><p>遍历处理物品 $1$ 时，不再是二维数组的第二行，而是直接覆盖在这个一维 $dp$ 数组上</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品1 &0&15&15&20&35\\
-    \hline
-\end{array}</script><p>遍历处理物品 $2$</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品2 &0&15&15&20&35\\
+    \hline 物品0&0&15&30&45&60\\
+    \hline 物品1&0&0&0&45&60\\
+    \hline 物品2&0&0&0&0&60\\
     \hline
 \end{array}</script><p><strong>golang 代码实现</strong></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">zeroOneBag</span><span class="params">(bagWeight <span class="keyword">int</span>, weights, values []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">  <span class="comment">//初始化</span></span><br><span class="line">  n := <span class="built_in">len</span>(weights)</span><br><span class="line">  dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, bagWeight + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= bagWeight; i++ &#123;</span><br><span class="line">      <span class="keyword">if</span> i &gt;= weights[<span class="number">0</span>] &#123;</span><br><span class="line">          dp[i] = values[<span class="number">0</span>]</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  fmt.Println(dp)</span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算dp数组的其他位置</span></span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; n; i++ &#123;</span><br><span class="line">      <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= bagWeight; j++ &#123;</span><br><span class="line">          <span class="keyword">if</span> j &gt;= weights[i] &#123;</span><br><span class="line">              dp[j] = max(dp[j], dp[j - weights[i]] + values[i])</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  fmt.Println(dp)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> dp[bagWeight]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个实现是有问题的，只是对于这个示例来说，可以通过。</p>
-<p>使用一维 $dp$ 数组，实际上就要考虑采用上述第二种初始化方式时遇到的问题，会发生<strong>重复</strong>选择物品的情况。</p>
-<p>来看这样一个例子：</p>
-<script type="math/tex; mode=display">
-示例\ \ \
-\begin{array}{|c|c|c|c|}
-    \hline bagWeight&4\\
-    \hline weights&1&2&5\\
-    \hline values&1&2&5\\
-    \hline
-\end{array}</script><p>初始状态：</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&0&0&0&0\\
-    \hline
-\end{array}</script><p>初始化后：</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品0 &0&1&1&1&1\\
-    \hline
-\end{array}</script><p>第 $2$ 行：</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品1 &0&1&2&3&4\\
-    \hline
-\end{array}</script><p>第 $3$ 行：</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品2 &0&1&2&3&4\\
-    \hline
-\end{array}</script><p>显然在最后一个单元格发生了重复，正常是不可能出现 $4$ 的。</p>
-<p>这是因为 $j = 4$ 时：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-dp[4] &= max(dp[4], dp[4 - weights[1]] + values[1])\\
-      &= max(1, dp[2] + 2)\\
-      &= max(1, 2 + 2)\\
-      &= 4
-\end{align}</script><p>而 $dp[2]$ 位置就已经选择了物品 $1$，$dp[4]$ 在 $dp[2]$ 的基础上又重复选择了一次。</p>
-<p>在使用二维 $dp$ 数组时不会发生这种情况，因为遍历下一行时不会去覆盖上一行的数据。</p>
-<p>那么这里为了不发生重复，就要使用在第二种初始化方式中讨论过的技巧，逆序遍历。</p>
-<p>在逆序情况下，正确的情况应该是，在遍历 $dp[4]$ 时，$dp[2]$ 的是 $1$ 而不是 $2$ （这就是在问题分析中说的：选物品 $1$ 时，扣除物品 $1$ 的重量以外，剩余的背包重量在除物品 $1$ 以外剩余可选的物品中，能选择的最大值。此时剩余的重量并不一定会装满。）：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-dp[4] &= max(dp[4], dp[4 - weights[1]] + values[1])\\
-      &= max(1, dp[2] + 2)\\
-      &= max(1, 1 + 2)\\
-      &= 3
-\end{align}</script><p>第 $2$ 行：</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品1 &0&1&2&3&3\\
-    \hline
-\end{array}</script><p>第 $3$ 行：</p>
-<script type="math/tex; mode=display">
-\begin{array}{|c|c|c|c|c|c|}
-    \hline     &重量0&重量1&重量2&重量3&重量4\\
-    \hline 物品1 &0&1&2&3&3\\
-    \hline
-\end{array}</script><p><strong>golang代码实现</strong></p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">zeroOneBag</span><span class="params">(bagWeight <span class="keyword">int</span>, weights, values []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">  <span class="comment">//初始化</span></span><br><span class="line">  n := <span class="built_in">len</span>(weights)</span><br><span class="line">  dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, bagWeight + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> j := bagWeight; j &gt;= weights[<span class="number">0</span>]; j-- &#123;</span><br><span class="line">    dp[j] = max(dp[j], dp[j - weights[<span class="number">0</span>]] + values[<span class="number">0</span>])</span><br><span class="line">  &#125;</span><br><span class="line">  fmt.Println(dp)</span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算dp数组的其他位置</span></span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; n; i++ &#123;</span><br><span class="line">      <span class="keyword">for</span> j := bagWeight; j &gt;= weights[i]; j-- &#123;</span><br><span class="line">          dp[j] = max(dp[j], dp[j - weights[i]] + values[i])</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  fmt.Println(dp)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> dp[bagWeight]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> i &gt; j &#123;</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">  weights = []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">  values = []<span class="keyword">int</span>&#123;<span class="number">15</span>, <span class="number">20</span>, <span class="number">30</span>&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">completePack</span><span class="params">(packWeight <span class="keyword">int</span>, weights, values []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    dp := <span class="built_in">make</span>([][]<span class="keyword">int</span>, <span class="built_in">len</span>(weights))</span><br><span class="line">    <span class="keyword">for</span> i, _ := <span class="keyword">range</span> dp &#123;</span><br><span class="line">        dp[i] = <span class="built_in">make</span>([]<span class="keyword">int</span>, packWeight + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"初始化前: "</span>, dp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= packWeight; j++ &#123;</span><br><span class="line">        dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j - weights[<span class="number">0</span>]] + values[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"初始化后: "</span>, dp)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//遍历物品</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(weights); i++ &#123;</span><br><span class="line">        <span class="comment">//遍历背包</span></span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= packWeight; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> j &gt;= weights[i] &#123;</span><br><span class="line">                dp[i][j] = max(dp[i - <span class="number">1</span>][j], dp[i][j - weights[i]] + values[i])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Println(dp)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="built_in">len</span>(weights) - <span class="number">1</span>][packWeight]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>$dp$ 数组的遍历顺序与<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 也是相同的。先遍历物品或先遍历背包都是可以的。</p>
+<h2 id="一维-dp-数组"><a href="#一维-dp-数组" class="headerlink" title="一维 $dp$ 数组"></a>一维 $dp$ 数组</h2><p>同样与<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题中的一维 $dp$ 数组相似，不再详细分析，先记录一下代码实现。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">completePack</span><span class="params">(packWeight <span class="keyword">int</span>, weights, values []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, packWeight + <span class="number">1</span>)</span><br><span class="line">    fmt.Println(<span class="string">"初始化前: "</span>, dp)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//遍历物品</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(weights); i++ &#123;</span><br><span class="line">        <span class="comment">//遍历背包</span></span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= packWeight; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> j &gt;= weights[i] &#123;</span><br><span class="line">                dp[j] = max(dp[j], dp[j - weights[i]] + values[i])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Println(dp)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[packWeight]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题中，一维 $dp$ 数组的遍历过程必须在外层循环遍历物品，内层循环遍历背包容量，而在<strong>完全背包（指纯完全背包，本题就是一个纯完全背包问题）</strong>中，先遍历物品和先遍历背包容量是一样的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>纯<strong>完全背包</strong>问题与纯<a href="https://sunxingboo.github.io/2021/07/12/01bag/" target="_blank" rel="noopener"> $01$ 背包</a> 问题的差别：</p>
+<ul>
+<li>在分析问题时，可以理解为物品是不是可以重复选择（每个物品有多件）</li>
+<li>在代码实现中，可以理解为对背包容量的遍历方向（完全背包是正序（从小到大）遍历背包容量，而 $01$ 背包是逆序（从大到小）遍历背包容量）。</li>
+</ul>
 
       
 
@@ -466,7 +333,7 @@ dp[4] &= max(dp[4], dp[4 - weights[1]] + values[1])\\
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:2021/07/12/01bag/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:2021/07/19/complete-pack/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -480,18 +347,9 @@ dp[4] &= max(dp[4], dp[4 - weights[1]] + values[1])\\
   
 <nav id="article-nav">
   
-    <a href="2021/07/13/bit-add/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          不使用加法计算两数之和
-        
-      </div>
-    </a>
   
-  
-    <a href="2021/07/09/markdown-math/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Markdown 常用数学公式代码</div>
+    <a href="2021/07/18/sub-array-sum/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一道很有代表性的数组动态规划问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -518,7 +376,7 @@ dp[4] &= max(dp[4], dp[4 - weights[1]] + values[1])\\
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单理解-01-背包问题性质"><span class="toc-number">1.</span> <span class="toc-text">简单理解 01 背包问题性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">2.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析"><span class="toc-number">3.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维-dp-数组"><span class="toc-number">4.</span> <span class="toc-text">二维 dp 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组下标定义"><span class="toc-number">4.1.</span> <span class="toc-text">数组下标定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递推公式及状态转移方程"><span class="toc-number">4.2.</span> <span class="toc-text">递推公式及状态转移方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化-dp-数组"><span class="toc-number">4.3.</span> <span class="toc-text">初始化 dp 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历方式"><span class="toc-number">4.4.</span> <span class="toc-text">遍历方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举例推导验证"><span class="toc-number">4.5.</span> <span class="toc-text">举例推导验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#golang-代码实现"><span class="toc-number">4.6.</span> <span class="toc-text">golang 代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一维-dp-数组"><span class="toc-number">5.</span> <span class="toc-text">一维 dp 数组</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解完全背包的性质"><span class="toc-number">1.</span> <span class="toc-text">理解完全背包的性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">2.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析"><span class="toc-number">3.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维-dp-数组"><span class="toc-number">4.</span> <span class="toc-text">二维 $dp$ 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一维-dp-数组"><span class="toc-number">5.</span> <span class="toc-text">一维 $dp$ 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -676,6 +534,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
@@ -688,19 +554,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,6 +566,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Golang</a>
               </li>
              
@@ -720,19 +578,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,6 +595,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
