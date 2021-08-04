@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="//sunxingboo.github.io">
   <title>右移一位和除2的区别 | 码农笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="翻看golang源码的时候看到在本可以进行除 2 的地方，实际实现写的是右移一位，因而有了这里的思考。 那么右移一位和除 2 在不考虑性能的情况下，有什么区别呢？">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="右移一位和除2的区别">
 <meta property="og:url" content="2021/06/25/move-bit/index.html">
 <meta property="og:site_name" content="码农笔记">
-<meta property="og:description" content="翻看golang源码的时候看到在本可以进行除 2 的地方，实际实现写的是右移一位，因而有了这里的思考。 那么右移一位和除 2 在不考虑性能的情况下，有什么区别呢？">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static-resources.oss-cn-beijing.aliyuncs.com/blogImg/algorithm/bit.jpeg">
 <meta property="article:published_time" content="2021-06-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-12T09:06:57.467Z">
+<meta property="article:modified_time" content="2021-08-04T10:40:31.578Z">
 <meta property="article:author" content="孙十一">
 <meta property="article:tag" content="位运算">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static-resources.oss-cn-beijing.aliyuncs.com/blogImg/algorithm/bit.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="码农笔记" type="application/atom+xml">
   
@@ -177,9 +177,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>翻看<code>golang</code>源码的时候看到在本可以进行除 2 的地方，实际实现写的是右移一位，因而有了这里的思考。</p>
-<p>那么右移一位和除 2 在不考虑性能的情况下，有什么区别呢？</p>
+        <p><img src="https://blog-static-resources.oss-cn-beijing.aliyuncs.com/blogImg/algorithm/bit.jpeg" width="400" height="300"/></p>
 <a id="more"></a>
+<p>翻看<code>golang</code>源码的时候看到在本可以进行除 2 的地方，实际实现写的是右移一位，因而有了这里的思考。</p>
+<p>那么右移一位和除 2 在不考虑性能的情况下，有什么区别呢？</p>
 <p>先看两个示例</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">println</span>(<span class="number">5</span> / <span class="number">2</span>)   <span class="comment">//2</span></span><br><span class="line"><span class="built_in">println</span>(<span class="number">-5</span> / <span class="number">2</span>) <span class="comment">//-2</span></span><br></pre></td></tr></table></figure>
 <p>除法表现出来的现象是<strong>向 0 取整</strong>的。</p>
@@ -468,11 +469,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +485,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,15 +501,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,10 +522,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,6 +538,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

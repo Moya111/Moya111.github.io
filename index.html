@@ -541,11 +541,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://blog-static-resources.oss-cn-beijing.aliyuncs.com/blogImg/algorithm/dp/dp-common.jpeg" width="450" height="300"/></p>
-<h2 id="连续子数组的最大和"><a href="#连续子数组的最大和" class="headerlink" title="连续子数组的最大和"></a>连续子数组的最大和</h2><p><a href="https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/" target="_blank" rel="noopener">leetcode 剑指 offer 42</a></p>
-<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
-<p><em>要求时间复杂度为 $O(n)$。</em></p>
-<p>示例1：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="number">6</span></span><br><span class="line">解释: 连续子数组 [<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>] 的和最大，为 <span class="number">6</span>。</span><br></pre></td></tr></table></figure>
         
       
 
@@ -705,23 +700,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>举例两个数字的位图</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 //0011</span><br><span class="line">1 //0001</span><br></pre></td></tr></table></figure>
-<p>当相加时，每个位上都可能发生四种种情况：</p>
-<ol>
-<li>两个数对应的位都是 <em>0</em>，相加后仍然为 <em>0</em>。</li>
-<li>两个数对应的位一个是 <em>1</em>，另一个是 <em>0</em>，相加后为 <em>1</em>。</li>
-<li>两个数对应的位都是 <em>1</em>，相加后产生进位，结果为 <em>0</em></li>
-<li>两个数对应的位一个是 <em>1</em>，另一个是 <em>0</em>。相加后为 <em>1</em>，然后接收到了下一位相加产生的进位 <em>1</em>，最终结果为 <em>0</em>，并且产生了一个进位 <em>1</em>。</li>
-</ol>
-<script type="math/tex; mode=display">
-\begin{array}{cc|c}
-           A&B&F\\
-    \hline 0&0&0\\
-           0&1&1\\
-           1&0&1\\
-           1&1&0\\
-\end{array}</script><p>若不考虑进位，只针对每一位来看，这就是一个异或操作。</p>
+        <p><img src="https://blog-static-resources.oss-cn-beijing.aliyuncs.com/blogImg/algorithm/bit.jpeg" width="400" height="300"/></p>
         
       
 
@@ -1167,11 +1146,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,15 +1162,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1203,15 +1178,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">etcd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1220,10 +1199,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1240,6 +1215,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
